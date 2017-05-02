@@ -1,0 +1,49 @@
+<#include "../include/header.html">
+    <html>
+    <head>
+        <title>地图</title>
+        <style type="text/css">
+            html{height:100%}
+            body{height:100%;margin:0px;padding:0px}
+            #container{height:100%}
+        </style>
+        <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+    </head>
+    <body>
+
+    <input type="text" id="cityName" value="${RequestParameters.address}"/>
+    <input type="button" onclick="ditu()" value="Find" />
+    <div id="container" style="width:1024px;height:600px;"></div>
+
+    <script type="text/javascript">
+
+        var map = new BMap.Map("container");        //��container�����д���һ����ͼ,����containerΪdiv��id����;
+        var point = new BMap.Point(120.2,30.25);    //����������
+        map.centerAndZoom(point, 14);                //��ʼ����ͼ���������ĵ�����͵�ͼ����
+        map.enableScrollWheelZoom();                //������ֵ�����С����
+        map.addControl(new BMap.NavigationControl());    //��ӿؼ������ŵ�ͼ�Ŀؼ���Ĭ�������Ͻǣ�
+        map.addControl(new BMap.MapTypeControl());        //��ӿؼ�����ͼ���Ϳؼ���Ĭ�������Ϸ���
+        map.addControl(new BMap.ScaleControl());        //��ӿؼ�����ͼ��ʾ�����Ŀؼ���Ĭ�������·���
+        map.addControl(new BMap.OverviewMapControl());  //��ӿؼ�����ͼ������ͼ�Ŀؼ���Ĭ�������·��� TrafficControl
+        var search = new BMap.LocalSearch("�й�", {
+            onSearchComplete: function(result){
+                if (search.getStatus() == BMAP_STATUS_SUCCESS){
+                    var res = result.getPoi(0);
+                    var point = res.point;
+                    map.centerAndZoom(point, 11);
+                }
+            },renderOptions: {  //����������ã�
+                map: map,
+                autoViewport: true,
+                selectFirstResult: true
+            } ,onInfoHtmlSet:function(poi,html){//��ע�������ݴ�����Ļص�������������������Լ򵥵ĸ�һ�·��ص�html�����ˡ�
+                // alert(html.innerHTML)
+            }//��һ�ο��Բ�Ҫ��ֻ������Ϊѧϰ������Ӧ�ö�����ġ�
+        });
+        function ditu(){
+            search.search(document.getElementById("cityName").value);
+        }
+        search.search(document.getElementById("cityName").value);
+    </script>
+    </body>
+    </html>

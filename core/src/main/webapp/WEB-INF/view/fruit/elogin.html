@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<#include "../include/header.html">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*$("#btnsubmit").click(function () {
+        alert($("#btnname").val());
+        console.log($("#btnname").val());
+        console.log($("#btnpassword").val());
+    });*/
+   var viewModel=new kendo.observable({
+        model:{},
+        submit:function () {
+            console.log(viewModel.model.name);
+            console.log(viewModel.model.password);
+        }
+    });
+    kendo.bind($("#form"),viewModel);
+</script>
+<form id="form" role="form" class="form-horizontal">
+<div class="container">
+    <div class="col-sm-5 "  >
+        <label class="col-sm-4">名字</label>
+        <div class="col-sm-8">
+            <input type="text" id="btnname" class="k-textbox" data-bind="value:model.name">
+        </div>
+    </div>
+    <div class="col-sm-5 ">
+        <label class="col-sm-4">密码</label>
+        <div class="col-sm-8">
+           <input type="text" id="btnpassword" class="k-textbox" data-bind="value:model.password">
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button id="btnsubmit" class="btn btn-primary btn-lg " data-bind="click:submit">登录</button>
+    </div>
+</div>
+</form>
+
+
+</body>
+</html>

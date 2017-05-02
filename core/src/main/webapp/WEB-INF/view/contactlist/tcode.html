@@ -1,0 +1,45 @@
+<#include "../include/header.html">
+
+    <head>
+        <meta charset="utf-8"/>
+        <title> JS 生成二维码 </title>
+        <script type="text/javascript">
+            window.onload = function(){
+
+                // 二维码对象
+                var qrcode;
+
+                // 默认设置
+                var content;
+                var size =400;
+
+                //获取内容
+                content =  '${RequestParameters.phone}';
+                content = content.replace(/(^\s*)|(\s*$)/g, "");
+                //alert("${RequestParameters.phone}");
+                if(content==''||content==null){
+                    $("#qrcode").html("手机号为空！！！");
+                    return false;
+                }
+
+                // 清除上一次的二维码
+                if(qrcode){
+                    qrcode.clear();
+                }
+                // 创建二维码
+                qrcode = new QRCode(document.getElementById("qrcode"), {
+                    width : size,//设置宽高
+                    height : size
+                });
+
+                qrcode.makeCode(content);
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+    <div id="qrcode"></div>
+    </body>
+    </html>

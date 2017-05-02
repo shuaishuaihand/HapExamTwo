@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hap.fruit.mapper.FruitMapper">
+    <resultMap id="BaseResultMap" type="hap.fruit.dto.Fruit">
+        <result column="id" property="id" jdbcType="DECIMAL" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="DECIMAL" />
+        <result column="producing_area" property="producingArea" jdbcType="VARCHAR" />
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL" />
+        <result column="request_id" property="requestId" jdbcType="DECIMAL" />
+        <result column="program_id" property="programId" jdbcType="DECIMAL" />
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL" />
+        <result column="creation_date" property="creationDate" jdbcType="DATE" />
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL" />
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE" />
+        <result column="last_update_login" property="lastUpdateLogin" jdbcType="DECIMAL" />
+    </resultMap>
+   <!-- <select id="selectFruits" resultMap="BaseResultMap" parameterType="hap.fruit.dto.Fruit" >
+       SELECT name，price，producing_area FROM fruit;
+    </select>-->
+
+
+</mapper>

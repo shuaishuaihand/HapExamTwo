@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="twoexam.contactlist.mapper.ContactlistMapper">
+    <resultMap id="BaseResultMap" type="twoexam.contactlist.dto.Contactlist">
+        <result column="id" property="id" jdbcType="DECIMAL" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="VARCHAR" />
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL" />
+        <result column="request_id" property="requestId" jdbcType="DECIMAL" />
+        <result column="program_id" property="programId" jdbcType="DECIMAL" />
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL" />
+        <result column="creation_date" property="creationDate" jdbcType="DATE" />
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL" />
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE" />
+        <result column="last_update_login" property="lastUpdateLogin" jdbcType="DECIMAL" />
+    </resultMap>
+
+
+</mapper>
